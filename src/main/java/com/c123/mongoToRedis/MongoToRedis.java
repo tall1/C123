@@ -79,7 +79,7 @@ public class MongoToRedis extends Thread {
                 lastDateStr = sdf.format(last);
                 jedis.set("last_date", lastDateStr);
             }
-
+            int i =1;
             try {
                 Thread.sleep(30_000);
             } catch (InterruptedException e) {
