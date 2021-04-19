@@ -28,9 +28,11 @@ public class TalSerializer implements Serializer<Event> {
     @Override
     public byte[] serialize(String topic, Headers headers, Event event) {
         byte[] retVal = null;
+        String str;
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            retVal = objectMapper.writeValueAsString(event).getBytes();
+            str = objectMapper.writeValueAsString(event);
+            retVal = str.getBytes();
         } catch (Exception e) {
             e.printStackTrace();
         }
