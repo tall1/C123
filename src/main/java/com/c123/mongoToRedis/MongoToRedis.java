@@ -70,13 +70,12 @@ public class MongoToRedis extends Thread {
                 doc = (Document) it.next();
                 System.out.println(doc);
 
-                Date date = (Date) doc.get("timestamp");
-                int reporterId = (int) doc.get("reporterId");
-                last = date; // keep the last date
                 curEvent = doc2Event(doc);
 
+                last = curEvent.getTimestamp(); // keep the last date
                 lastDateStr = sdf.format(last); // turn to format
-                key = reporterId + ":" + lastDateStr;
+                key = curEvent.getReporterId() + ":" + lastDateStr;
+
                 try {
                     value = objectMapper.writeValueAsString(curEvent);
                 } catch (JsonProcessingException e) {
