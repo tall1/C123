@@ -28,7 +28,7 @@ public class KafkaProducer {
 
         try {
             String LOCK_FL = "/home/tal/IdeaProjects/C123/src/main/java/com/c123/producers/producerRunCondition.txt";
-            // String LOCK_FL = "C:\\Users\\talev\\IdeaProjects\\ApacheKafka\\src\\main\\java\\com\\c123\\producers\\producerRunCondition.txt";
+            //String LOCK_FL = "C:\\Users\\talev\\IdeaProjects\\ApacheKafka\\src\\main\\java\\com\\c123\\producers\\producerRunCondition.txt";
             File myFile = new File(LOCK_FL);
             Scanner myReader = new Scanner(myFile);
             for (int i = 0; myReader.nextInt() != 0; i++) {
