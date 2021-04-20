@@ -27,7 +27,9 @@ public class KafkaProducer {
         Producer<String, Event> producer = new org.apache.kafka.clients.producer.KafkaProducer<>(props);
 
         try {
-            File myFile = new File("C:\\Users\\talev\\IdeaProjects\\ApacheKafka\\src\\main\\java\\com\\c123\\producers\\producerRunCondition.txt");
+            String LOCK_FL = "/home/tal/IdeaProjects/C123/src/main/java/com/c123/producers/producerRunCondition.txt";
+            // String LOCK_FL = "C:\\Users\\talev\\IdeaProjects\\ApacheKafka\\src\\main\\java\\com\\c123\\producers\\producerRunCondition.txt";
+            File myFile = new File(LOCK_FL);
             Scanner myReader = new Scanner(myFile);
             for (int i = 0; myReader.nextInt() != 0; i++) {
 
@@ -44,7 +46,7 @@ public class KafkaProducer {
         } catch (Exception e) {
             System.out.println("Error writing message:");
             e.printStackTrace();
-        }finally {
+        } finally {
             System.out.println("Finished");
             producer.close();
         }
