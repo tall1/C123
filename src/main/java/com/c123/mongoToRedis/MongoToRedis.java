@@ -59,7 +59,7 @@ public class MongoToRedis extends Thread {
         objectMapper.setDateFormat(sdf);
 
         while (true) {
-            // Retrieve Documents from mongo with filter, sorted
+            // Retrieve Documents from mongo with filter, sorted.
             FindIterable<Document> iterDoc =
                     collection.find(Filters.gt("timestamp", last))
                               .sort(new BasicDBObject("timestamp", 1));
