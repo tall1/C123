@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class KafkaProducer {
     public static void main(String[] args) throws Exception {
-
+        // Hi!
         String topicName = "taltopic";
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
